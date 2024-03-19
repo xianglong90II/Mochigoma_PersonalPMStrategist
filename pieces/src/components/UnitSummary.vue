@@ -3,20 +3,30 @@
         <div class="title">{{summaryTitle}}</div>
         <div class="line"></div>
         <span class="pointTitle">{{ pointTitle }}</span>
-        <span class="summaryPts" :style="{color:unitColor}">3</span>
+        <span class="summaryPts" :style="{color:unitColor}">{{ ptsData }}</span>
     </div>
 </template>
 
 <script setup lang="ts" name="UnitSummary">
+let props = defineProps(['unitType','ptsData'])
+
+//determine color and title
 let unitColor:string
 let summaryTitle:string
 let pointTitle:string
-let unitType = 'working'
-if (unitType == 'working'){
+let unitType = props.unitType
+if (unitType == 'support'){
+  unitColor = '#5AFF75'
+  summaryTitle = 'Support Activities'
+  pointTitle = 'Concentration'
+
+}
+else if (unitType == 'working'){
   unitColor = '#5667FF'
   summaryTitle = 'Working Activities'
   pointTitle = 'Total Man-hour Pts'
-}else{
+}
+else{
   unitColor = '#FF4949'
   summaryTitle = 'Objectives'
   pointTitle = 'Total Function Pts'

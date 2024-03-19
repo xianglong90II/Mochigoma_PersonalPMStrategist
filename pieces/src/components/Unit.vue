@@ -14,11 +14,11 @@
             placeholder="Unit Title Here">
         </div>
         <div class="adjustables">
-          <div class="firstTitle">{{ attr1Title }}</div>
-          <div class="secondTitle">{{ attr2Title }}</div>
+          <div class="firstTitle">{{ val1Title }}</div>
+          <div class="secondTitle">{{ val2Title }}</div>
           <div class="firstAdjust">
             <el-rate
-              v-model="attrValue1"
+              v-model="val1"
               :max="3"
               :icons="icons"
               :void-icon="Help"
@@ -30,7 +30,7 @@
           </div>
           <div class="secondAdjust">
             <el-rate
-              v-model="attrValue2"
+              v-model="val2"
               :max="3"
               :icons="icons"
               :void-icon="Help"
@@ -48,32 +48,46 @@
 
 <script setup lang="ts" name="Unit">
 // a single pieces unit
-import{computed, ref}from 'vue'
+import{computed, onMounted, ref}from 'vue'
 import { Help,HelpFilled } from '@element-plus/icons-vue'
+import { useWkStore } from '@/stores/allStore';
+let wkStore = useWkStore()
+const icons = [HelpFilled,HelpFilled,HelpFilled]
 //determine unit types and colors
 let unitColor:string
-let attr1Title:string
-let attr2Title:string
-let unitType = 'working'
+let val1Title:string
+let val2Title:string
+let props = defineProps(['unitType'])
+let unitType = props.unitType
 if (unitType == 'working'){
   unitColor = '#5667FF'
-  attr1Title = 'Productivity'
-  attr2Title = 'Duriation'
+  val1Title = 'Productivity'
+  val2Title = 'Duriation'
 }else{
   unitColor = '#FF4949'
-  attr1Title = 'Difficulty'
-  attr2Title = 'Volume'
+  val1Title = 'Difficulty'
+  val2Title = 'Volume'
 }
 
 const titleInput = ref('')
 
-let attrValue1 = ref(0)
-let attrValue2 = ref(0)
-let scoreVal = computed(()=>{return attrValue1.value*attrValue2.value})
+//expose important variables
+let val1 = ref(0)
+let val2 = ref(0)
+let scoreVal = computed(()=>{return val1.value*val2.value})
+
+let exObj = {
+  title:titleInput,
+  val1:val1,
+  val2:val2,
+}
+onMounted(()=>{
+  if(unitType=='working'){
+    wkStore.wkObjArray.push(exObj)
+  }
+})
 
 
-
-const icons = [HelpFilled,HelpFilled,HelpFilled]
 </script>
 
 <style scoped>

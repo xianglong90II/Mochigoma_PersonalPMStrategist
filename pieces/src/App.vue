@@ -1,21 +1,34 @@
 <template>
   <header>
-    <UnitSummary/>
-    <Unit/>
-    <Unit/>
-    <AvailableBar/>
-    <el-button color="#5667FF" :icon="Plus" size="large" circle />
+    <el-header>
+      <h4>这是头部</h4>
+    </el-header>
+    <el-main>
+    <el-container direction="horizontal" flex justify-content="space-between" align-items="stretch">
+        <div>
+          <SpActivities/>
+        </div>
+        <div>
+          <WkActivities/>
+        </div>
+        <div>
+          <ObjActivities/>
+        </div>
+        
+      </el-container>
+    </el-main>
+    <el-footer>
+      <p>这是底部</p>
+    </el-footer>
   </header>
 
 </template>
 
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
-import Unit from './components/Unit.vue'
-import UnitSummary from './components/UnitSummary.vue'
-import {Plus} from '@element-plus/icons-vue'
-import AvailableBar from './components/AvailableBar.vue';
-// import HelloWorld from './components/HelloWorld.vue'
+import SpActivities from './components/SpActivities.vue'
+import WkActivities from './components/WkActivities.vue'
+import ObjActivities from './components/ObjActivities.vue'
+
 </script>
 
 <style scoped>

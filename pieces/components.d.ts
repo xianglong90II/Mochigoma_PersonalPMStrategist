@@ -7,16 +7,23 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
-    AddBtn: typeof import('./src/components/AddBtn.vue')['default']
     AvailableBar: typeof import('./src/components/AvailableBar.vue')['default']
     ElButton: typeof import('element-plus/es')['ElButton']
-    ElInput: typeof import('element-plus/es')['ElInput']
+    ElContainer: typeof import('element-plus/es')['ElContainer']
+    ElFooter: typeof import('element-plus/es')['ElFooter']
+    ElHeader: typeof import('element-plus/es')['ElHeader']
+    ElMain: typeof import('element-plus/es')['ElMain']
     ElRate: typeof import('element-plus/es')['ElRate']
-    IconComponent: typeof import('./src/components/IconComponent.vue')['default']
-    MyIcons: typeof import('./src/components/MyIcons.vue')['default']
+    ElScrollbar: typeof import('element-plus/es')['ElScrollbar']
+    ObjActivities: typeof import('./src/components/ObjActivities.vue')['default']
+    PersonalStatus: typeof import('./src/components/PersonalStatus.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    SpActivities: typeof import('./src/components/SpActivities.vue')['default']
+    SpUnit: typeof import('./src/components/SpUnit.vue')['default']
+    SupportActivities: typeof import('./src/components/SupportActivities.vue')['default']
     Unit: typeof import('./src/components/Unit.vue')['default']
     UnitSummary: typeof import('./src/components/UnitSummary.vue')['default']
+    WkActivities: typeof import('./src/components/WkActivities.vue')['default']
   }
 }
