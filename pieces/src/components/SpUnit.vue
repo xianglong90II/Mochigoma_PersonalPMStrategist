@@ -12,6 +12,14 @@
             line-height: 20px;"
             placeholder="Unit Title Here">
         </div>
+        <el-button @click="unitDelete" :icon="btnIcon" size="small" circle style="
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        left: 155px;
+        top: 13px;
+        z-index: 10;
+        " />
         <div class="adjustables">
           <div class="subtitle1">{{ val1Title }}</div>
           <div class="subtitle2">{{ val2Title }}</div>
@@ -59,11 +67,11 @@
 <script setup lang="ts" name="SpUnit">
 // a single pieces unit
 import{computed, onMounted, ref}from 'vue'
-import { Help,HelpFilled,ArrowUpBold,SemiSelect,ArrowDownBold} from '@element-plus/icons-vue'
-
-
+import { Help,HelpFilled,ArrowUpBold,SemiSelect,ArrowDownBold,CloseBold} from '@element-plus/icons-vue'
 import {useSpStore} from '../stores/allStore'
 let spStore = useSpStore()
+let btnIcon = CloseBold
+
 
 //determine unit types and colors
 let unitColor:string
@@ -88,19 +96,36 @@ let scoreVal = computed(()=>{return valValue1.value*valValue2.value})
 const icons = [HelpFilled,HelpFilled,HelpFilled]
 const physicalAttrIcons ={1:ArrowDownBold,3:{value:SemiSelect,excluded:true},4:ArrowUpBold}
 
-
-
 //Object exposing variables
-let exObj = {
-  title:titleInput,
-  val1:valValue1,
-  val2:valValue2,
-  val3:valValue3
-}
-//store to pinia when mounted
+// get id when mounted
+let exObj:any
+// let memoId:string
 onMounted(()=>{
+  // let unitId = spStore.spArray[spStore.spArray.length-1].props.id
+  console.log('mounted')
+  exObj = {
+    // id:unitId,
+    title:titleInput,
+    val1:valValue1,
+    val2:valValue2,
+    val3:valValue3
+  }
+  //store to pinia when mounted
   spStore.spObjArray.push(exObj)
+  // memoId=unitId
 })
+//when unit deleted
+function unitDelete(){
+  console.log('unit deleted')
+  spStore.spObjArray = []
+  spStore.spArray = []
+
+  //we need to get the correct unit id
+  // console.log(memoId)
+  // spStore.spObjArray = spStore.spObjArray.filter(obj => obj.id !== memoId)
+  // spStore.spArray = spStore.spArray.filter(obj => obj.props.id !== memoId)
+}
+
 
 </script>
 

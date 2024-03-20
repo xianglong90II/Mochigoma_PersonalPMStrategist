@@ -3,7 +3,7 @@
         <UnitSummary :unit-type="'support'" :ptsData="spStore.getConcentration"/>
         <PersonalStatus/>
         <el-scrollbar height="300px">
-            <SpUnit v-for="spUnit in spUnits" ></SpUnit>
+            <SpUnit v-for="(spUnit,index) in spStore.spArray" :key="index"></SpUnit>
         </el-scrollbar>
         <el-button @click="addSpUnit()" color="#5AFF75" :icon="Plus" size="large" circle />
         <AvailableBar :unitType="'support'" :barTitle="'Energy Left'" 
@@ -19,13 +19,14 @@ import PersonalStatus from './PersonalStatus.vue'
 import SpUnit from './SpUnit.vue'
 import {ref,reactive,computed} from 'vue'
 import {useSpStore} from '../stores/allStore'
+import { nanoid } from 'nanoid'
 let spStore = useSpStore()
 
 
 // function adds units
-let spUnits:Array<any> = spStore.spArray
+// bind the id when created, the position will be the last
 function addSpUnit(){
-    spUnits.push(SpUnit)
+    spStore.spArray.push({component:SpUnit,props:{id:nanoid()}})
 }
 
 

@@ -1,12 +1,14 @@
 <template>
     <div>
-        <UnitSummary :unitType="'working'"/>
+        <UnitSummary :unitType="'working'" :ptsData="wkStore.getManhourPts"/>
         <el-scrollbar height="350px">
             <Unit v-for="i in wkStore.wkArray" :unitType="'working'"/>
         </el-scrollbar>
         <el-button @click="addWkUnit" color="#5667FF" :icon="Plus" size="large" circle />
-        <AvailableBar :unitType="'working'" :barTitle="'Concentration'"/>
-        <AvailableBar :unitType="'working'" :barTitle="'Workable Time'"/>
+        <AvailableBar :unitType="'working'" :barTitle="'Concentration'" 
+        :valMin="wkStore.getConcentrationLeft" :valMax="wkStore.getConcentrationMax"/>
+        <AvailableBar :unitType="'working'" :barTitle="'Workable Time'" 
+        :valMin="wkStore.getWorkableTimeLeft" :valMax="wkStore.getWorkableTimeMax"/>
     </div>
 </template>
 

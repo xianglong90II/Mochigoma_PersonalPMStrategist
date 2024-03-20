@@ -44,20 +44,51 @@ export const useWkStore = defineStore({
         }
     },
     getters:{
-        getManhourPts:()=>{
-            
+        getManhourPts:(state)=>{
+            return state.wkObjArray.reduce((accumulator:number, currentValue:any) => {
+                // mutiply and sum
+                return accumulator + currentValue.val1 * currentValue.val2;
+            }, 0)
         },
         getConcentrationMax:()=>{
-
+            return useSpStore().getConcentration
         },
-        getConcentrationMin:()=>{
-
+        getConcentrationLeft:(state)=>{
+            return useSpStore().getConcentration - state.wkObjArray.reduce((acc:number, obj:any) => acc + obj.val1, 0)
         },
         getWorkableTimeMax:()=>{
             return useSpStore().getWorkableTimeMax
         },
-        getWorkableTimeMin:()=>{
-
+        getWorkableTimeLeft:(state)=>{
+            return useSpStore().getWorkableTimeMax - state.wkObjArray.reduce((acc:number, obj:any) => acc + obj.val2, 0)
+        }
+    }
+})
+export const useObjStore = defineStore({
+    id:'objStore',
+    state(){
+        return {
+            //stores objective units
+            objArray:reactive<any>([]),
+            //stores value of each units
+            objObjArray:reactive<any>([])
+        }
+    },
+    getters:{
+        getFunctionPoints:(state)=>{
+            return state.objObjArray.reduce((accumulator:number, currentValue:any) => {
+                // mutiply and sum
+                return accumulator + currentValue.val1 * currentValue.val2;
+            }, 0);
+        },
+        getManhourAvailableMax:()=>{
+            return useWkStore().getManhourPts
+        },
+        getManhourAvailableLeft:(state)=>{
+            return useWkStore().getManhourPts-state.objObjArray.reduce((accumulator:number, currentValue:any) => {
+                // mutiply and sum
+                return accumulator + currentValue.val1 * currentValue.val2;
+            }, 0);
         }
     }
 })

@@ -1,11 +1,12 @@
 <template>
     <div>
-        <UnitSummary :unitType="'objectives'"/>
+        <UnitSummary :unitType="'objectives'" :ptsData="objStore.getFunctionPoints"/>
         <el-scrollbar height="350px">
-            <Unit v-for="i in objUnits" :unitType="'objectives'"/>
+            <Unit v-for="i in objStore.objArray" :unitType="'objectives'"/>
         </el-scrollbar>
         <el-button @click="addObjUnit" color="#FF4949" :icon="Plus" size="large" circle />
-        <AvailableBar :unitType="'objectives'" :barTitle="'Man-hour Available'"/>
+        <AvailableBar :unitType="'objectives'" :barTitle="'Man-hour Available'"
+        :valMin="objStore.getManhourAvailableLeft" :valMax="objStore.getManhourAvailableMax"/>
     </div>
 </template>
 
@@ -15,11 +16,11 @@ import UnitSummary from './UnitSummary.vue'
 import {Plus} from '@element-plus/icons-vue'
 import AvailableBar from './AvailableBar.vue'
 import { reactive } from 'vue'
-
-let objUnits:any = reactive([])
+import { useObjStore } from '@/stores/allStore'
+let objStore = useObjStore()
 
 function addObjUnit(){
-    objUnits.push(Unit)
+    objStore.objArray.push(Unit)
 }
 </script>
 

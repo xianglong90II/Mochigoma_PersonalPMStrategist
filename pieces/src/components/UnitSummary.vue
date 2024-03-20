@@ -18,7 +18,7 @@ let unitType = props.unitType
 if (unitType == 'support'){
   unitColor = '#5AFF75'
   summaryTitle = 'Support Activities'
-  pointTitle = 'Concentration'
+  pointTitle = 'Concentration gained'
 
 }
 else if (unitType == 'working'){

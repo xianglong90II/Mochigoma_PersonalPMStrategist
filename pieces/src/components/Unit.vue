@@ -13,6 +13,16 @@
             line-height: 20px;"
             placeholder="Unit Title Here">
         </div>
+        <div>
+        <el-button @click="unitDelete" :icon="CloseBold" size="small" circle style="
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        left: 155px;
+        top: 50px;
+        z-index: 10;
+        " />
+        </div>
         <div class="adjustables">
           <div class="firstTitle">{{ val1Title }}</div>
           <div class="secondTitle">{{ val2Title }}</div>
@@ -48,10 +58,13 @@
 
 <script setup lang="ts" name="Unit">
 // a single pieces unit
-import{computed, onMounted, ref}from 'vue'
-import { Help,HelpFilled } from '@element-plus/icons-vue'
-import { useWkStore } from '@/stores/allStore';
+import{computed, onBeforeMount, onMounted, ref}from 'vue'
+import { Help, HelpFilled, CloseBold } from '@element-plus/icons-vue'
+import { useWkStore, useObjStore } from '@/stores/allStore';
+import { nanoid } from 'nanoid';
+
 let wkStore = useWkStore()
+let objStore = useObjStore()
 const icons = [HelpFilled,HelpFilled,HelpFilled]
 //determine unit types and colors
 let unitColor:string
@@ -68,25 +81,40 @@ if (unitType == 'working'){
   val1Title = 'Difficulty'
   val2Title = 'Volume'
 }
-
-const titleInput = ref('')
-
 //expose important variables
+//determine id
+let unitId = nanoid()
+const titleInput = ref('')
 let val1 = ref(0)
 let val2 = ref(0)
 let scoreVal = computed(()=>{return val1.value*val2.value})
-
 let exObj = {
+  id: unitId,
   title:titleInput,
   val1:val1,
   val2:val2,
 }
+//push objects while mounted
 onMounted(()=>{
   if(unitType=='working'){
     wkStore.wkObjArray.push(exObj)
+  }else if(unitType=='objectives'){
+    objStore.objObjArray.push(exObj)
   }
 })
 
+function unitDelete(){
+  console.log('unit deleted')
+  if(unitType=='working'){
+    // wkStore.wkObjArray=wkStore.wkObjArray.filter(obj => obj.id !== unitId)
+    wkStore.wkArray = []
+    wkStore.wkObjArray = []
+  }else if(unitType=='objectives'){
+    // objStore.objObjArray=objStore.objObjArray.filter(obj => obj.id !== unitId)
+    objStore.objArray = []
+    objStore.objObjArray = []
+  }
+}
 
 </script>
 
@@ -118,11 +146,11 @@ onMounted(()=>{
   height: 20px;
   z-index: 4;
 }
+
 input {
   border-style: none; 
   transition: border-color 0.3s ease; 
 }
-
 
 .adjustables {
   position: absolute;
