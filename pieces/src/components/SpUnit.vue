@@ -135,6 +135,8 @@ function unitDelete(){
   position: relative;
   width: 190px;
   height: 140px;
+  left: 10%;
+  margin-top: 3%;
   border: #2e2e2e solid 1px;
   border-radius: 5px;
   box-shadow: 0px 2px 4px rgba(100,100,100,0.5);

@@ -5,7 +5,9 @@
         <el-scrollbar height="300px">
             <SpUnit v-for="(spUnit,index) in spStore.spArray" :key="index"></SpUnit>
         </el-scrollbar>
-        <el-button @click="addSpUnit()" color="#5AFF75" :icon="Plus" size="large" circle />
+        <div class="btn">
+            <el-button @click="addSpUnit()" color="#5AFF75" :icon="Plus" style="width: 100%; height: 100%;" circle />
+        </div>
         <AvailableBar :unitType="'support'" :barTitle="'Energy Left'" 
         :valMin="spStore.getEnergyLeft" :valMax="spStore.getEnergyMax"/>
     </div>
@@ -33,5 +35,11 @@ function addSpUnit(){
 </script>
 
 <style scoped>
-
+.btn {
+    position: relative;
+    height: 3rem;
+    width: 3rem;
+    left: 85%;
+    padding-bottom: 2%;
+}
 </style>

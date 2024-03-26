@@ -92,3 +92,31 @@ export const useObjStore = defineStore({
         }
     }
 })
+export const useCreditStore = defineStore({
+    id:'creditStore',
+    state(){
+        return{
+        }
+    },
+    getters:{
+        getEfficiency:()=>{
+            //how workable time spent/ function points solved
+            //less time you spent, more you efficient
+            //more function points solved, more you efficient
+            //(fp solved/ workable time spent) *100
+            return (useObjStore().getFunctionPoints/useWkStore().getWorkableTimeMax - useWkStore().getWorkableTimeLeft*100).toFixed(1)
+        },
+        getFeasibility:()=>{
+            //how many man-hour pts left after all tasks done
+            //manhourLeft/manhourMax * 100
+            return (useObjStore().getManhourAvailableLeft/useObjStore().getManhourAvailableMax*100).toFixed(1)
+        },
+        getSatisfaction:()=>{
+            //how many concentration, energy, sparetime remains
+            let concentrationRemain=useWkStore().getConcentrationLeft/useWkStore().getConcentrationMax
+            let energyRemain=useSpStore().getEnergyLeft/useSpStore().getEnergyMax
+            let spareTimeRemain=useWkStore().getWorkableTimeLeft/useWkStore().getWorkableTimeMax
+            return ((concentrationRemain+energyRemain+spareTimeRemain)/3*100).toFixed(1)
+        }
+    }
+})

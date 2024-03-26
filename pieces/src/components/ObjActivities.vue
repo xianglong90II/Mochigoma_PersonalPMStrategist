@@ -4,7 +4,9 @@
         <el-scrollbar height="350px">
             <Unit v-for="i in objStore.objArray" :unitType="'objectives'"/>
         </el-scrollbar>
-        <el-button @click="addObjUnit" color="#FF4949" :icon="Plus" size="large" circle />
+        <div class="btn">
+            <el-button @click="addObjUnit" color="#FF4949" :icon="Plus" style="width: 100%; height: 100%;" circle />
+        </div>
         <AvailableBar :unitType="'objectives'" :barTitle="'Man-hour Available'"
         :valMin="objStore.getManhourAvailableLeft" :valMax="objStore.getManhourAvailableMax"/>
     </div>
@@ -25,5 +27,11 @@ function addObjUnit(){
 </script>
 
 <style scoped>
-
+.btn {
+    position: relative;
+    height: 3rem;
+    width: 3rem;
+    left: 85%;
+    padding-bottom: 2%;
+}
 </style>

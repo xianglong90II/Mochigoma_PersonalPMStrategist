@@ -66,6 +66,7 @@ import { nanoid } from 'nanoid';
 let wkStore = useWkStore()
 let objStore = useObjStore()
 const icons = [HelpFilled,HelpFilled,HelpFilled]
+
 //determine unit types and colors
 let unitColor:string
 let val1Title:string
@@ -103,6 +104,7 @@ onMounted(()=>{
   }
 })
 
+//clear all units in same type
 function unitDelete(){
   console.log('unit deleted')
   if(unitType=='working'){
@@ -124,6 +126,7 @@ function unitDelete(){
   position: relative;
   width: 190px;
   height: 150px;
+  left: 10%;
 }
 .score {
   position: absolute;
@@ -208,7 +211,5 @@ input {
   top: 0px;
   width: 190px;
   height: 150px;
-  background-blend-mode: normal;
-  box-shadow: 0px 4px 4px rgba(100,100,100,0.5);
 }
 </style>

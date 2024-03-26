@@ -1,10 +1,12 @@
 <template>
-    <div>
+    <div class="main">
         <UnitSummary :unitType="'working'" :ptsData="wkStore.getManhourPts"/>
         <el-scrollbar height="350px">
             <Unit v-for="i in wkStore.wkArray" :unitType="'working'"/>
         </el-scrollbar>
-        <el-button @click="addWkUnit" color="#5667FF" :icon="Plus" size="large" circle />
+        <div class="btn">
+            <el-button @click="addWkUnit" color="#5667FF" :icon="Plus" style="width: 100%; height: 100%;" circle />
+        </div>
         <AvailableBar :unitType="'working'" :barTitle="'Concentration'" 
         :valMin="wkStore.getConcentrationLeft" :valMax="wkStore.getConcentrationMax"/>
         <AvailableBar :unitType="'working'" :barTitle="'Workable Time'" 
@@ -30,5 +32,11 @@ function addWkUnit(){
 </script>
 
 <style scoped>
-
+.btn {
+    position: relative;
+    height: 3rem;
+    width: 3rem;
+    left: 85%;
+    padding-bottom: 2%;
+}
 </style>
