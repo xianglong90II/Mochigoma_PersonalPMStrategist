@@ -1,12 +1,11 @@
 <template>
     <div class="availableBar">
-        <span class="title" :style="{color: unitColor}">{{ barTitle }}</span>
+        <span class="title" :style="{color: unitColor}">{{ $t(barTitle) }}</span>
         <span class="counter" :style="{color: unitColor}">{{props.valMin}}/{{props.valMax}}</span>
     </div>
 </template>
 
 <script setup lang="ts" name="AvailableBar">
-import {ref} from 'vue'
 let props = defineProps(['unitType','barTitle','valMin','valMax'])
 
 //determine the title

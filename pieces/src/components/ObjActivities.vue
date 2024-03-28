@@ -7,7 +7,7 @@
         <div class="btn">
             <el-button @click="addObjUnit" color="#FF4949" :icon="Plus" style="width: 100%; height: 100%;" circle />
         </div>
-        <AvailableBar :unitType="'objectives'" :barTitle="'Man-hour Available'"
+        <AvailableBar :unitType="'objectives'" :barTitle="'userInterface.manhourAvailable'"
         :valMin="objStore.getManhourAvailableLeft" :valMax="objStore.getManhourAvailableMax"/>
     </div>
 </template>
@@ -17,13 +17,15 @@ import Unit from './Unit.vue'
 import UnitSummary from './UnitSummary.vue'
 import {Plus} from '@element-plus/icons-vue'
 import AvailableBar from './AvailableBar.vue'
-import { reactive } from 'vue'
 import { useObjStore } from '@/stores/allStore'
+import { i18n } from '@/lang'
+import { watch } from 'vue'
 let objStore = useObjStore()
-
+//add unit function
 function addObjUnit(){
     objStore.objArray.push(Unit)
 }
+
 </script>
 
 <style scoped>

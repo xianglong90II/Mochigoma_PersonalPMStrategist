@@ -11,7 +11,7 @@
             font-size: 16px;
             font-weight: 700;
             line-height: 20px;"
-            placeholder="Unit Title Here">
+            :placeholder="$t('unit.unitTitleHere')">
         </div>
         <div>
         <el-button @click="unitDelete" :icon="CloseBold" size="small" circle style="
@@ -24,8 +24,8 @@
         " />
         </div>
         <div class="adjustables">
-          <div class="firstTitle">{{ val1Title }}</div>
-          <div class="secondTitle">{{ val2Title }}</div>
+          <div class="firstTitle">{{ $t(val1Title) }}</div>
+          <div class="secondTitle">{{ $t(val2Title) }}</div>
           <div class="firstAdjust">
             <el-rate
               v-model="val1"
@@ -62,6 +62,7 @@ import{computed, onBeforeMount, onMounted, ref}from 'vue'
 import { Help, HelpFilled, CloseBold } from '@element-plus/icons-vue'
 import { useWkStore, useObjStore } from '@/stores/allStore';
 import { nanoid } from 'nanoid';
+import { i18n } from '@/lang';
 
 let wkStore = useWkStore()
 let objStore = useObjStore()
@@ -74,13 +75,13 @@ let val2Title:string
 let props = defineProps(['unitType'])
 let unitType = props.unitType
 if (unitType == 'working'){
-  unitColor = '#5667FF'
-  val1Title = 'Productivity'
-  val2Title = 'Duriation'
+  unitColor = '#5667FF' // translation will affect
+  val1Title = 'unit.productivity'
+  val2Title = 'unit.duriation'
 }else{
   unitColor = '#FF4949'
-  val1Title = 'Difficulty'
-  val2Title = 'Volume'
+  val1Title = "unit.difficulty"
+  val2Title = "unit.volume"
 }
 //expose important variables
 //determine id

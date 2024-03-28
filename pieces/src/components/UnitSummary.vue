@@ -1,35 +1,37 @@
 <template>
     <div class="unitSummary">
-        <div class="title">{{summaryTitle}}</div>
+        <div class="title" v-if="unitType=='support'">{{$t("userInterface.supportActivities")}}</div>
+        <div class="title" v-if="unitType=='working'">{{$t("userInterface.workingActivities")}}</div>
+        <div class="title" v-if="unitType=='objectives'">{{$t("userInterface.objectives")}}</div>
         <div class="line"></div>
-        <span class="pointTitle">{{ pointTitle }}</span>
+        <span class="pointTitle" v-if="unitType=='support'">{{ $t("userInterface.conentrationGained")}}</span>
+        <span class="pointTitle" v-if="unitType=='working'">{{ $t("userInterface.totalManhourPts")}}</span>
+        <span class="pointTitle" v-if="unitType=='objectives'">{{ $t("userInterface.totalFunctionPts")}}</span>
         <span class="summaryPts" :style="{color:unitColor}">{{ ptsData }}</span>
     </div>
 </template>
 
 <script setup lang="ts" name="UnitSummary">
+import { i18n } from '@/lang/index';
+
+//locale realtimely
+import { useI18n } from 'vue-i18n'
+const { t } = useI18n()
+
 let props = defineProps(['unitType','ptsData'])
 
 //determine color and title
 let unitColor:string
-let summaryTitle:string
-let pointTitle:string
 let unitType = props.unitType
-if (unitType == 'support'){
-  unitColor = '#5AFF75'
-  summaryTitle = 'Support Activities'
-  pointTitle = 'Concentration gained'
 
+if (unitType == 'support'){
+  unitColor = '#5AFF75' 
 }
 else if (unitType == 'working'){
   unitColor = '#5667FF'
-  summaryTitle = 'Working Activities'
-  pointTitle = 'Total Man-hour Pts'
 }
 else{
   unitColor = '#FF4949'
-  summaryTitle = 'Objectives'
-  pointTitle = 'Total Function Pts'
 }
 
 

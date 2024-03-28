@@ -104,7 +104,7 @@ export const useCreditStore = defineStore({
             //less time you spent, more you efficient
             //more function points solved, more you efficient
             //(fp solved/ workable time spent) *100
-            return (useObjStore().getFunctionPoints/useWkStore().getWorkableTimeMax - useWkStore().getWorkableTimeLeft*100).toFixed(1)
+            return ((useObjStore().getFunctionPoints/(useWkStore().getWorkableTimeMax - useWkStore().getWorkableTimeLeft))*50).toFixed(1)
         },
         getFeasibility:()=>{
             //how many man-hour pts left after all tasks done

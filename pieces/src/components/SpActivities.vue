@@ -8,7 +8,7 @@
         <div class="btn">
             <el-button @click="addSpUnit()" color="#5AFF75" :icon="Plus" style="width: 100%; height: 100%;" circle />
         </div>
-        <AvailableBar :unitType="'support'" :barTitle="'Energy Left'" 
+        <AvailableBar :unitType="'support'" :barTitle="'userInterface.energyLeft'" 
         :valMin="spStore.getEnergyLeft" :valMax="spStore.getEnergyMax"/>
     </div>
 </template>
@@ -22,6 +22,7 @@ import SpUnit from './SpUnit.vue'
 import {ref,reactive,computed} from 'vue'
 import {useSpStore} from '../stores/allStore'
 import { nanoid } from 'nanoid'
+import { i18n } from '@/lang'
 let spStore = useSpStore()
 
 

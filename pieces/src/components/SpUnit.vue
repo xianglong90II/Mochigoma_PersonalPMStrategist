@@ -21,9 +21,9 @@
         z-index: 10;
         " />
         <div class="adjustables">
-          <div class="subtitle1">{{ val1Title }}</div>
-          <div class="subtitle2">{{ val2Title }}</div>
-          <div class="subtitle3">{{ val3Title }}</div>
+          <div class="subtitle1">{{ $t(val1Title) }}</div>
+          <div class="subtitle2">{{ $t(val2Title) }}</div>
+          <div class="subtitle3">{{ $t(val3Title) }}</div>
           <div class="rate1">
             <el-rate
               v-model="valValue1"
@@ -69,6 +69,8 @@
 import{computed, onMounted, ref}from 'vue'
 import { Help,HelpFilled,ArrowUpBold,SemiSelect,ArrowDownBold,CloseBold} from '@element-plus/icons-vue'
 import {useSpStore} from '../stores/allStore'
+import { i18n } from '@/lang';
+
 let spStore = useSpStore()
 let btnIcon = CloseBold
 
@@ -80,9 +82,9 @@ let val2Title:string
 let val3Title:string
 let unitType = 'support'
 unitColor = '#5AFF75'
-val1Title = 'Emotion plus:'
-val2Title = 'Physical ↓/↑:'
-val3Title = 'Time cost:'
+val1Title = "unit.emotionPlus"
+val2Title = "unit.physicalUpDown"
+val3Title = "unit.timeCost"
 //create variable for rating
 let valValue1 = ref(0)
 let valValue2 = ref(0)

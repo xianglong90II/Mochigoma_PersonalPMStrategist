@@ -1,6 +1,6 @@
 <template>
     <div class="personalStatus">
-        <div class="title1">Physical Status</div>
+        <div class="title1">{{ $t("userInterface.physicalStatus") }}</div>
         <el-rate class="rate1"
               v-model="physicalStatus"
               :max="3"
@@ -11,7 +11,7 @@
               :void-color="unitColor"
               :colors="[unitColor,unitColor,unitColor]"
             />
-            <div class="title2">Emotional Status</div>
+            <div class="title2">{{ $t("userInterface.emotionalStatus") }}</div>
             <el-rate class="rate2"
                   v-model="emotionalStatus"
                   :max="3"
@@ -29,6 +29,7 @@
 import {ref} from 'vue'
 import { Help,HelpFilled } from '@element-plus/icons-vue'
 import {useSpStore} from '../stores/allStore'
+//create nessesary variables
 const icons = [HelpFilled,HelpFilled,HelpFilled]
 let unitColor = "#5AFF75"
 let emotionalStatus = ref(0)

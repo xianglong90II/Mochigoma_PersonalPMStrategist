@@ -1,11 +1,11 @@
 <template>
     <div class="box">
         <div class="frame">
-            <div class="title1">Efficiency</div>
+            <div class="title1">{{ $t("userInterface.efficiency") }}</div>
             <div class="val1" :style="{color:colorAccordingScore(20,40,parseInt(creditStore.getEfficiency))}">{{ creditStore.getEfficiency }}</div>
-            <div class="title2">Feasability</div>
+            <div class="title2">{{ $t("userInterface.feasability") }}</div>
             <div class="val2" :style="{color:colorAccordingScore(20,40,parseInt(creditStore.getFeasibility))}">{{ creditStore.getFeasibility }}</div>
-            <div class="title3">Satisfaction</div>
+            <div class="title3">{{ $t("userInterface.satisfaction") }}</div>
             <div class="val3" :style="{color:colorAccordingScore(20,40,parseInt(creditStore.getSatisfaction))}">{{ creditStore.getSatisfaction }}</div>
         </div>
     </div>

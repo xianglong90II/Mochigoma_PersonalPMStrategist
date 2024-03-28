@@ -7,9 +7,9 @@
         <div class="btn">
             <el-button @click="addWkUnit" color="#5667FF" :icon="Plus" style="width: 100%; height: 100%;" circle />
         </div>
-        <AvailableBar :unitType="'working'" :barTitle="'Concentration'" 
+        <AvailableBar :unitType="'working'" :barTitle="'userInterface.concentration'" 
         :valMin="wkStore.getConcentrationLeft" :valMax="wkStore.getConcentrationMax"/>
-        <AvailableBar :unitType="'working'" :barTitle="'Workable Time'" 
+        <AvailableBar :unitType="'working'" :barTitle="'userInterface.workableTime'" 
         :valMin="wkStore.getWorkableTimeLeft" :valMax="wkStore.getWorkableTimeMax"/>
     </div>
 </template>
@@ -19,7 +19,6 @@ import Unit from './Unit.vue';
 import UnitSummary from './UnitSummary.vue'
 import {Plus} from '@element-plus/icons-vue'
 import AvailableBar from './AvailableBar.vue'
-import {reactive} from 'vue'
 import {useWkStore} from '../stores/allStore'
 let wkStore = useWkStore()
 
