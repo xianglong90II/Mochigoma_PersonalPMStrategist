@@ -27,7 +27,6 @@ declare module 'vue' {
     RouterView: typeof import('vue-router')['RouterView']
     SpActivities: typeof import('./src/components/SpActivities.vue')['default']
     SpUnit: typeof import('./src/components/SpUnit.vue')['default']
-    SupportActivities: typeof import('./src/components/SupportActivities.vue')['default']
     Unit: typeof import('./src/components/Unit.vue')['default']
     UnitSummary: typeof import('./src/components/UnitSummary.vue')['default']
     WkActivities: typeof import('./src/components/WkActivities.vue')['default']
