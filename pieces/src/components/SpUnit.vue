@@ -10,7 +10,7 @@
             font-size: 16px;
             font-weight: 700;
             line-height: 20px;"
-            placeholder="Unit Title Here">
+            :placeholder="$t('unit.unitTitleHere')">
         </div>
         <el-button @click="unitDelete" :icon="btnIcon" size="small" circle style="
         position: absolute;
