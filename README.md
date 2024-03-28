@@ -1,2 +1,2 @@
-# Pieces_your personal life manager
-Individual Project Management software. Managing your goals&amp;requirements and schedule&amp;resources. Time/resources will be divided into units, so your management will get more strategical.
+# Pieces_ToDO
+是否对无用的挑战感到厌烦？是否希望切实有效地完成项目？<b>人是有极限的</b>，所以做事要量力而行。这是一个以此为目的而开发的待办事项软件，参考了项目管理中FunctionPoints的手法，并结合了个人时间与心情的管理，帮你高效每一天！
