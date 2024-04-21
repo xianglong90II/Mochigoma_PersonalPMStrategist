@@ -15,11 +15,11 @@
 </template>
 
 <script setup lang="ts" name="WkActivities">
-import Unit from './Unit.vue';
+import Unit from '@/components/Unit.vue';
 import UnitSummary from './UnitSummary.vue'
 import {Plus} from '@element-plus/icons-vue'
 import AvailableBar from './AvailableBar.vue'
-import {useWkStore} from '../stores/allStore'
+import {useWkStore} from '@/stores/allStore'
 let wkStore = useWkStore()
 
 // let wkUnits:any = reactive([])

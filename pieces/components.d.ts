@@ -7,8 +7,8 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
-    AvailableBar: typeof import('./src/components/AvailableBar.vue')['default']
-    CreditResult: typeof import('./src/components/CreditResult.vue')['default']
+    AvailableBar: typeof import('./src/components/my-day-UI/AvailableBar.vue')['default']
+    CreditResult: typeof import('./src/components/my-day-UI/CreditResult.vue')['default']
     ElButton: typeof import('element-plus/es')['ElButton']
     ElCol: typeof import('element-plus/es')['ElCol']
     ElContainer: typeof import('element-plus/es')['ElContainer']
@@ -20,15 +20,19 @@ declare module 'vue' {
     ElRate: typeof import('element-plus/es')['ElRate']
     ElRow: typeof import('element-plus/es')['ElRow']
     ElScrollbar: typeof import('element-plus/es')['ElScrollbar']
+    ElSelectV2: typeof import('element-plus/es')['ElSelectV2']
     ElSubMenu: typeof import('element-plus/es')['ElSubMenu']
-    ObjActivities: typeof import('./src/components/ObjActivities.vue')['default']
-    PersonalStatus: typeof import('./src/components/PersonalStatus.vue')['default']
+    IconSelect: typeof import('./src/components/my-day-UI/IconSelect.vue')['default']
+    IconSellect: typeof import('./src/components/my-day-UI/IconSellect.vue')['default']
+    ObjActivities: typeof import('./src/components/my-day-UI/ObjActivities.vue')['default']
+    Optionlist: typeof import('./src/components/my-day-UI/optionlist.vue')['default']
+    PersonalStatus: typeof import('./src/components/my-day-UI/PersonalStatus.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
-    SpActivities: typeof import('./src/components/SpActivities.vue')['default']
+    SpActivities: typeof import('./src/components/my-day-UI/SpActivities.vue')['default']
     SpUnit: typeof import('./src/components/SpUnit.vue')['default']
     Unit: typeof import('./src/components/Unit.vue')['default']
-    UnitSummary: typeof import('./src/components/UnitSummary.vue')['default']
-    WkActivities: typeof import('./src/components/WkActivities.vue')['default']
+    UnitSummary: typeof import('./src/components/my-day-UI/UnitSummary.vue')['default']
+    WkActivities: typeof import('./src/components/my-day-UI/WkActivities.vue')['default']
   }
 }

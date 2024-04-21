@@ -1,9 +1,12 @@
 <template>
     <div class="unit">
         <div class="score">{{ scoreVal }}</div>
+        <div class="iconSelect">
+          <IconSelect></IconSelect>
+        </div>
         <div class="unitTitle">
           <input type="text" v-model="titleInput"
-            style="width: 90%;
+            style="width: 100%;
             color: #2e2e2e;
             height: 100%;  
             border-style: none; 
@@ -13,6 +16,7 @@
             line-height: 20px;"
             :placeholder="$t('unit.unitTitleHere')">
         </div>
+
         <div>
         <el-button @click="unitDelete" :icon="CloseBold" size="small" circle style="
         position: absolute;
@@ -62,7 +66,7 @@ import{computed, onBeforeMount, onMounted, ref}from 'vue'
 import { Help, HelpFilled, CloseBold } from '@element-plus/icons-vue'
 import { useWkStore, useObjStore } from '@/stores/allStore';
 import { nanoid } from 'nanoid';
-import { i18n } from '@/lang';
+import IconSelect from '@/components/my-day-UI/IconSelect.vue'
 
 let wkStore = useWkStore()
 let objStore = useObjStore()
@@ -142,11 +146,19 @@ function unitDelete(){
   text-align: center;
 }
 
-.unitTitle {
-  position: absolute;
+.iconSelect{
+  position: relative;
   left: 10%;
   top: 32%;
-  width: 155px;
+  width: 30px;
+  z-index: 5;
+}
+
+.unitTitle {
+  position: absolute;
+  left: 25%;
+  top: 32%;
+  width: 100px;
   height: 20px;
   z-index: 4;
 }

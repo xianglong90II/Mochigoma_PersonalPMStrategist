@@ -13,7 +13,7 @@
 </template>
 
 <script setup lang="ts" name="ObjActivities">
-import Unit from './Unit.vue'
+import Unit from '@/components/Unit.vue'
 import UnitSummary from './UnitSummary.vue'
 import {Plus} from '@element-plus/icons-vue'
 import AvailableBar from './AvailableBar.vue'

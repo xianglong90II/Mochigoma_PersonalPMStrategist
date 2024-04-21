@@ -1,5 +1,8 @@
 <template>
     <div class="unit">
+      <div class="iconSelect">
+          <IconSelect></IconSelect>
+        </div>
         <div class="unitTitle">
           <input type="text" v-model="titleInput"
             style="width: 90%;
@@ -68,8 +71,8 @@
 // a single pieces unit
 import{computed, onMounted, ref}from 'vue'
 import { Help,HelpFilled,ArrowUpBold,SemiSelect,ArrowDownBold,CloseBold} from '@element-plus/icons-vue'
-import {useSpStore} from '../stores/allStore'
-import { i18n } from '@/lang';
+import {useSpStore} from '@/stores/allStore'
+import IconSelect from '@/components/my-day-UI/IconSelect.vue'
 
 let spStore = useSpStore()
 let btnIcon = CloseBold
@@ -144,11 +147,19 @@ function unitDelete(){
   box-shadow: 0px 2px 4px rgba(100,100,100,0.5);
 }
 
+.iconSelect{
+  position: relative;
+  left: 8%;
+  top: 8%;
+  width: 30px;
+  z-index: 7;
+}
+
 .unitTitle {
   position: absolute;
-  left: 16.3px;
+  left: 42px;
   top: 12.33px;
-  width: 155.82px;
+  width: 116px;
   height: 18.47px;
   color: #2e2e2e;
   font-family: Inter;

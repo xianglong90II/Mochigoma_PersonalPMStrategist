@@ -28,7 +28,7 @@
 <script setup lang="ts" name="PersonalStatus">
 import {ref} from 'vue'
 import { Help,HelpFilled } from '@element-plus/icons-vue'
-import {useSpStore} from '../stores/allStore'
+import {useSpStore} from '@/stores/allStore'
 //create nessesary variables
 const icons = [HelpFilled,HelpFilled,HelpFilled]
 let unitColor = "#5AFF75"

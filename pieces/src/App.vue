@@ -10,6 +10,7 @@
         <el-menu-item index="1">My day</el-menu-item>
         <el-menu-item index="2" disabled>Main plan</el-menu-item>
         <div class="flex-grow"></div>
+        <el-button :icon="Moon" size="large" circle />
         <el-sub-menu index="3">
           <template #title>
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-translate" viewBox="0 0 16 16">
@@ -17,9 +18,9 @@
   <path d="M0 2a2 2 0 0 1 2-2h7a2 2 0 0 1 2 2v3h3a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-3H2a2 2 0 0 1-2-2V2zm2-1a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h7a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H2zm7.138 9.995c.193.301.402.583.63.846-.748.575-1.673 1.001-2.768 1.292.178.217.451.635.555.867 1.125-.359 2.08-.844 2.886-1.494.777.665 1.739 1.165 2.93 1.472.133-.254.414-.673.629-.89-1.125-.253-2.057-.694-2.82-1.284.681-.747 1.222-1.651 1.621-2.757H14V8h-3v1.047h.765c-.318.844-.74 1.546-1.272 2.13a6.066 6.066 0 0 1-.415-.492 1.988 1.988 0 0 1-.94.31z"/>
 </svg>
             </template>
-          <el-menu-item index="2-1">English</el-menu-item>
-          <el-menu-item index="2-2">简体中文</el-menu-item>
-          <el-menu-item index="2-3">日本語</el-menu-item>
+          <el-menu-item index="3-1">English</el-menu-item>
+          <el-menu-item index="3-2">简体中文</el-menu-item>
+          <el-menu-item index="3-3">日本語</el-menu-item>
         </el-sub-menu>
       </el-menu>
     </el-header>
@@ -53,27 +54,26 @@
 </template>
 
 <script setup lang="ts">
-import SpActivities from './components/SpActivities.vue'
-import WkActivities from './components/WkActivities.vue'
-import ObjActivities from './components/ObjActivities.vue'
-import creditResult from './components/CreditResult.vue';
-import { i18n } from './lang';
+import SpActivities from './components/my-day-UI/SpActivities.vue'
+import WkActivities from './components/my-day-UI/WkActivities.vue'
+import ObjActivities from './components/my-day-UI/ObjActivities.vue'
+import {Moon} from '@element-plus/icons-vue'
 import { ref } from 'vue'
-import { useI18n } from 'vue-i18n';
+import { useI18n } from 'vue-i18n'
 const {locale} = useI18n()
 
 //dealing with routing
 const activeIndex = ref('1')
 const handleSelect = async (key: string, keyPath: string[]) => {
   console.log(key, keyPath)
-  if (key == "2-1"){//en
+  if (key == "3-1"){//en
     locale.value = 'en'
     // i18n.global.locale = "en"
-  }else if (key=="2-2"){//zh
+  }else if (key=="3-2"){//zh
     locale.value = 'zh'
     // i18n.global.locale = "zh"
   }
-  else if (key == '2-3'){//ja
+  else if (key == '3-3'){//ja
     locale.value = 'ja'
     // i18n.global.locale = "ja"
   }
