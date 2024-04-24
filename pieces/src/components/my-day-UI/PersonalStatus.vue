@@ -50,6 +50,9 @@ spStore.personalStatus.physicalStat = physicalStatus
   border-radius: 15px;
   border: 1px solid #2e2e2e;
 }
+.dark .personalStatus{
+  color: #ebebeb;
+}
 .title1 {
   position: absolute;
   left: 16px;
@@ -61,6 +64,9 @@ spStore.personalStatus.physicalStat = physicalStatus
   font-size: 14px;
   font-weight: 700;
 }
+.dark .title1{
+  color: #ebebeb;
+}
 .title2 {
   position: absolute;
   left: 16px;
@@ -71,6 +77,9 @@ spStore.personalStatus.physicalStat = physicalStatus
   font-family: Inter;
   font-size: 14px;
   font-weight: 700;
+}
+.dark .title2{
+  color: #ebebeb;
 }
 .rate1 {
   position: absolute;

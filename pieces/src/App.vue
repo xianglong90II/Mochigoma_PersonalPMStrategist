@@ -10,7 +10,7 @@
         <el-menu-item index="1">My day</el-menu-item>
         <el-menu-item index="2" disabled>Main plan</el-menu-item>
         <div class="flex-grow"></div>
-        <el-button :icon="Moon" size="large" circle />
+        <el-button :icon="Moon" size="large" circle @click="toogleNightmode"/>
         <el-sub-menu index="3">
           <template #title>
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-translate" viewBox="0 0 16 16">
@@ -60,6 +60,7 @@ import ObjActivities from './components/my-day-UI/ObjActivities.vue'
 import {Moon} from '@element-plus/icons-vue'
 import { ref } from 'vue'
 import { useI18n } from 'vue-i18n'
+import { useMainPageStore } from './stores/allStore'
 const {locale} = useI18n()
 
 //dealing with routing
@@ -78,6 +79,20 @@ const handleSelect = async (key: string, keyPath: string[]) => {
     // i18n.global.locale = "ja"
   }
 }
+
+//night mode
+useMainPageStore.nightModeStatus = false
+function toogleNightmode(){
+  if (useMainPageStore.nightModeStatus==false){
+    document.getElementsByTagName('html')[0].className = 'dark'
+    // document.getElementsByTagName('el-header')[0].style.backgroundColor = "#302f2c"
+    useMainPageStore.nightModeStatus = true
+  }else{
+    document.getElementsByTagName('html')[0].className = ''
+    useMainPageStore.nightModeStatus = false
+  }
+}
+
 </script>
 
 <style scoped>

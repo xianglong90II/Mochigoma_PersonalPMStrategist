@@ -6,6 +6,7 @@ import ElementPlus from 'element-plus'
 import { i18n } from '@/lang/index'
 
 import 'element-plus/dist/index.css'
+import 'element-plus/theme-chalk/dark/css-vars.css'
 
 import App from './App.vue'
 import router from './router'

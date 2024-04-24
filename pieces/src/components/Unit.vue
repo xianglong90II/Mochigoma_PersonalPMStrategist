@@ -188,7 +188,9 @@ input {
   font-weight: 700;
   line-height: 16.94px;
 }
-
+.dark .firstTitle{
+  color: #ebebeb;
+}
 .secondTitle {
   position: absolute;
   left: -5%;
@@ -201,7 +203,9 @@ input {
   font-weight: 700;
   line-height: 16.94px;
 }
-
+.dark .secondTitle{
+  color: #ebebeb;
+}
 .firstAdjust {
   position: absolute;
   left: 55%;

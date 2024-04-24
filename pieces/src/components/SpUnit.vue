@@ -168,6 +168,9 @@ function unitDelete(){
   line-height: 19.36px;
   z-index: 6;
 }
+.dark .unitTitle{
+  color: #ebebeb;
+}
 input {
   border-style: none; 
   transition: border-color 0.3s ease; 
@@ -194,6 +197,9 @@ input {
   font-weight: 700;
   line-height: 16.94px;
 }
+.dark .subtitle1{
+  color: #ebebeb;
+}
 
 .subtitle2 {
   position: absolute;
@@ -207,6 +213,9 @@ input {
   font-weight: 700;
   line-height: 16.94px;
 }
+.dark .subtitle2{
+  color: #ebebeb;
+}
 
 .subtitle3 {
   position: absolute;
@@ -219,6 +228,9 @@ input {
   font-size: 14px;
   font-weight: 700;
   line-height: 16.94px;
+}
+.dark .subtitle3{
+  color: #ebebeb;
 }
 
 .rate1 {

@@ -41,6 +41,9 @@ function colorAccordingScore(below:number,over:number,val:number){
   border-radius: 15px;
   border: 1px solid #2e2e2e;
 }
+.dark .frame {
+  color: #ebebeb;
+}
 
 .title1 {
   position: absolute;
@@ -53,6 +56,9 @@ function colorAccordingScore(below:number,over:number,val:number){
   text-align: center;
   font-weight: 600;
 }
+.dark .title1{
+  color: #ebebeb;
+}
 .title2 {
   position: absolute;
   top: 98px;
@@ -64,6 +70,9 @@ function colorAccordingScore(below:number,over:number,val:number){
   text-align: center;
   font-weight: 600;
 }
+.dark .title2{
+  color: #ebebeb;
+}
 .title3 {
   position: absolute;
   top: 177px;
@@ -74,6 +83,9 @@ function colorAccordingScore(below:number,over:number,val:number){
   font-size: 20px;
   text-align: center;
   font-weight: 600;
+}
+.dark .title3{
+  color: #ebebeb;
 }
 .val1 {
   position: absolute;

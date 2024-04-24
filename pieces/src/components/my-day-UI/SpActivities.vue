@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div height="100%">
         <UnitSummary :unit-type="'support'" :ptsData="spStore.getConcentration"/>
         <PersonalStatus/>
         <el-scrollbar height="300px">

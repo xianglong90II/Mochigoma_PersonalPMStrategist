@@ -1,6 +1,25 @@
 import { ref, reactive } from 'vue'
 import { defineStore} from 'pinia'
 
+export const useMainPageStore = defineStore({
+    id:'mainPageStore',
+    state(){
+        return{
+            nightModeStatus:false
+        }
+    }
+})
+
+export const usePresetStore = defineStore({
+    id:'usePresetStore',
+    state(){
+        return{
+            spPresets:reactive<any>([]),
+            wkPresets:reactive<any>([]),
+            objPresets:reactive<any>([])
+        }
+    }
+})
 
 export const useSpStore = defineStore({
     id:'spStore',

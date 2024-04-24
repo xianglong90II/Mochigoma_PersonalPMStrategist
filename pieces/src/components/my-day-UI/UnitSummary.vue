@@ -58,6 +58,9 @@ else{
   font-weight: 400;
   line-height: 38.73px;
 }
+.dark .title {
+  color: #ebebeb;
+}
 .line{
     position: absolute;
     top: 35px;
@@ -78,6 +81,9 @@ else{
   font-size: 20px;
   font-weight: 400;
   line-height: 18.15px;
+}
+.dark .pointTitle{
+  color: #ebebeb;
 }
 .summaryPts{
   position: absolute;

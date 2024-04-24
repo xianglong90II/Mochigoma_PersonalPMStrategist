@@ -4,6 +4,8 @@
         <el-scrollbar height="350px">
             <Unit v-for="i in objStore.objArray" :unitType="'objectives'"/>
         </el-scrollbar>
+
+        
         <div class="btn">
             <el-button @click="addObjUnit" color="#FF4949" :icon="Plus" style="width: 100%; height: 100%;" circle />
         </div>
